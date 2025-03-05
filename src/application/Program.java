@@ -24,6 +24,12 @@ public class Program {
 		for(Seller item : listSeller) {
 			System.out.println(item);
 		}
+		
+		System.out.println("\n--- Testing findByAll ---");
+		listSeller = sd.findAll();
+		for(Seller item : listSeller) {
+			System.out.println(item);
+		}
 	}
 
 }

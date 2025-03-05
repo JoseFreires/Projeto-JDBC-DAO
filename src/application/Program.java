@@ -1,13 +1,18 @@
 package application;
 
-import model.entities.Department;
+import model.dao.DaoFactory;
+import model.dao.SellerDao;
+import model.entities.Seller;
 
 public class Program {
 
 	public static void main(String[] args) {
-		Department depart = new Department(1, "Technology");
 		
-		Seller sel = new Seller(10, "Manuel", "manu@gmail.com", "")
+		SellerDao sd = DaoFactory.createSellerDao();
+		
+		Seller seller = sd.findById(3);
+		
+		System.out.println(seller);
 	}
 
 }

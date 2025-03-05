@@ -51,19 +51,8 @@ public class SellerDaoJDBC implements SellerDao{
 			ps.setInt(1, id);
 			rs = ps.executeQuery();
 			if(rs.next()) {
-				// Criando objeto Department para receber dados do banco
-				Department dep = new Department();
-				dep.setId(rs.getInt("DepartmentId"));
-				dep.setName(rs.getString("DepName"));
-				
-				// Criando objeto Seller para receber dados do banco
-				Seller sel = new Seller();
-				sel.setId(rs.getInt("Id"));
-				sel.setName(rs.getString("Name"));
-				sel.setEmail(rs.getString("Email"));
-				sel.setBithDate(rs.getDate("BirthDate"));
-				sel.setBaseSalary(rs.getDouble("BaseSalary"));
-				sel.setDepartment(dep);
+				Department dep = instantiateDepartment(rs);
+				Seller sel = instantiateSeller(rs, dep);
 				
 				return sel;
 			}
@@ -79,6 +68,25 @@ public class SellerDaoJDBC implements SellerDao{
 		
 		
 	}
+	
+	// Criação de Instancias para evitar escrever vários linhas de códigos de forma repetida
+	private Seller instantiateSeller(ResultSet rs, Department dep) throws SQLException { 
+		Seller sell = new Seller(); 
+		sell.setId(rs.getInt("Id")); 
+		sell.setName(rs.getString("Name")); 
+		sell.setEmail(rs.getString("Email")); 
+		sell.setBaseSalary(rs.getDouble("BaseSalary")); 
+		sell.setBirthDate(rs.getDate("BirthDate")); 
+		sell.setDepartment(dep); 
+		return sell; 
+	} 
+	private Department instantiateDepartment(ResultSet rs) throws SQLException { 
+		Department dep = new Department(); 
+		dep.setId(rs.getInt("DepartmentId")); 
+		dep.setName(rs.getString("DepName")); 
+		return dep; 
+	} 
+
 
 	@Override
 	public List<Seller> findAll() {

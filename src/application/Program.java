@@ -35,12 +35,12 @@ public class Program {
 			System.out.println(item);
 		}
 		
-		System.out.println("\n--- Testing Update Seller ---");
+		System.out.println("\n--- Testing Insert Seller ---");
 		Seller seller2 = new Seller(null, "Thiago Fritz", "fritz@gmail.com", new Date(), 4500.0, dep);
 		sd.insert(seller2);
 		System.out.println("Success! New id seller: " + seller2.getId());
 		
-		System.out.println("\n--- Testing Insert Seller ---");
+		System.out.println("\n--- Testing Update Seller ---");
 		seller = sd.findById(3);
 		seller.setName("Bob Pink");
 		seller.setEmail("bobPink@gmail.com");

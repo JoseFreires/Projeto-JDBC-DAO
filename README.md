@@ -1,6 +1,8 @@
 # Projeto de JDBC com DAO
 
-
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/2895e381-e25d-4059-aec9-0f668bc79988" style="width: 200px"  />
+</p>
 
 <p>Esse projeto é um complemento do repositório "JDBC Básico" a qual o intuito é praticar o que foi ensinado em um programa
 completo. Cada commit presente nesse repositório demonstra a evolução do programa. Nesse projeto utilizamos o Data Acess Object (DAO) que
